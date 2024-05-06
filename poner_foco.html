@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Permitir exclusivamente números, letras o ambos</title>
+<script>
+function permitir(elEvento, permitidos) {
+    // Variables que definen los caracteres permitidos
+    var numeros = "0123456789";
+    var caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZáéíóúñÁÉÍÓÚÑ";
+    var numeros_caracteres = numeros + caracteres;
+    var teclas_especiales = [8, 37, 39, 46]; // BackSpace, flecha izquierda, flecha derecha, Supr
+
+    // Seleccionar los caracteres a partir del parámetro de la función
+    switch (permitidos) {
+        case 'N':
+            permitidos = numeros;
+            break;
+        case 'C':
+            permitidos = caracteres;
+            break;
+        case 'N_C':
+            permitidos = numeros_caracteres;
+            break;
+    }
+
+    // Obtener el evento
+    var evento = elEvento || window.event;
+    var codigoCaracter = evento.charCode || evento.keyCode;
+    var caracter = String.fromCharCode(codigoCaracter);
+
+    // Comprobación de teclas especiales (teclas de borrado y flechas horizontales)
+    var tecla_especial = false;
+    for (var i in teclas_especiales) {
+        if (codigoCaracter === teclas_especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+
+    // Comprobar si la tecla pulsada se encuentra en los caracteres permitidos o si es una tecla especial
+    return permitidos.indexOf(caracter) !== -1 || tecla_especial;
+}
+</script>
+</head>
+<body>
+<label>Permitir exclusivamente números:</label>
+<input type="text" onkeypress="return permitir(event, 'N')" />
+
+<label>Permitir exclusivamente letras:</label>
+<input type="text" onkeypress="return permitir(event, 'C')" />
+
+<label>Permitir exclusivamente números o letras:</label>
+<input type="text" onkeypress="return permitir(event, 'N_C')" />
+</body>
+</html>
