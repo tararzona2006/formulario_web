@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validarFormulario() { 
+        // Recoger los valores del formulario 
+        var nombre = document.getElementById("nombre").value; var email = document.getElementById("email").value; var edad = document.getElementById("edad").value; 
+        // Verificar los campos obligatorios 
+        if (nombre == "" || email == "" || edad == "") { 
+        alert("Por favor, rellene todos los campos 889129 3 obligatorios"); 
+        return false; 
+        }
+        // Verificar el email 
+        var expReg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z] {2,4}$/; 
+        if (!expReg.test (email)) { 
+        alert("La dirección de email no es válida"); return false; 
+
+        } 
+        // Verificar la edad 
+        if (isNaN(edad) || edad < 18 || edad > 99) { 
+
+        alert("Por favor, introduzca una edad válida"); return false; 
+        } 
+    } 
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+valor = document.getElementById("campo").value; 
+if(isNaN(valor) ) { 
+} 
+return false; 
+isNaN(3); // false 
+isNaN("3"); // false 
+isNaN(3.3545); // false 
+isNaN(32323.345); // false 
+isNaN(+23.2); // false 
+isNaN("-23.2"); // false 
+isNaN("23a"); // true 
+isNaN("23.43.54"); // true
+
+
+    </script>
+
+</body>
+</html>

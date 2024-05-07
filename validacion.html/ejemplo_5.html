@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Script>
+    function validarFecha(fecha) { 
+    const partes = fecha.split('-'); 
+    const year = parseInt(partes[0], 10); 
+    const monthIndex = parseInt(partes[1], 10) - 1; const day = parseInt(partes[2], 10); 
+    const fechaConstruida = new Date(year, monthIndex, day); return fechaConstruida.getFullYear() === year 
+    && fechaConstruida.getMonth() === monthIndex && fechaConstruida.getDate() === day; 
+    // Ejemplo de uso 
+    var fechaValida = validarFecha ("2023-05-06"); console.log(fechaValida); // true 
+    var fechaInvalida = validarFecha ("2021-02-29"); console.log(fechaInvalida); // false 
+    }
+    </Script>
+
+</body>
+</html>
